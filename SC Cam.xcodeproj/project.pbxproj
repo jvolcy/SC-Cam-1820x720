@@ -10,9 +10,9 @@
 		066AE2E82200D4D8008DDC1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066AE2E72200D4D8008DDC1F /* AppDelegate.swift */; };
 		066AE2EA2200D4D8008DDC1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066AE2E92200D4D8008DDC1F /* ViewController.swift */; };
 		066AE2EC2200D4D9008DDC1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 066AE2EB2200D4D9008DDC1F /* Assets.xcassets */; };
-		066AE2EF2200D4D9008DDC1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 066AE2ED2200D4D9008DDC1F /* Main.storyboard */; };
 		066AE2FB2200D4D9008DDC1F /* SC_CamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066AE2FA2200D4D9008DDC1F /* SC_CamTests.swift */; };
 		066AE3062200D4D9008DDC1F /* SC_CamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066AE3052200D4D9008DDC1F /* SC_CamUITests.swift */; };
+		066AE3872203CE9D008DDC1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 066AE3862203CE9D008DDC1F /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 		066AE2E72200D4D8008DDC1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		066AE2E92200D4D8008DDC1F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		066AE2EB2200D4D9008DDC1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		066AE2EE2200D4D9008DDC1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		066AE2F02200D4D9008DDC1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		066AE2F12200D4D9008DDC1F /* SC_Cam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SC_Cam.entitlements; sourceTree = "<group>"; };
 		066AE2F62200D4D9008DDC1F /* SC CamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SC CamTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +46,7 @@
 		066AE3052200D4D9008DDC1F /* SC_CamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SC_CamUITests.swift; sourceTree = "<group>"; };
 		066AE3072200D4D9008DDC1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		066AE38522034805008DDC1F /* SC Cam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SC Cam.entitlements"; sourceTree = "<group>"; };
+		066AE3862203CE9D008DDC1F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +100,8 @@
 				066AE38522034805008DDC1F /* SC Cam.entitlements */,
 				066AE2E72200D4D8008DDC1F /* AppDelegate.swift */,
 				066AE2E92200D4D8008DDC1F /* ViewController.swift */,
+				066AE3862203CE9D008DDC1F /* Main.storyboard */,
 				066AE2EB2200D4D9008DDC1F /* Assets.xcassets */,
-				066AE2ED2200D4D9008DDC1F /* Main.storyboard */,
 				066AE2F02200D4D9008DDC1F /* Info.plist */,
 				066AE2F12200D4D9008DDC1F /* SC_Cam.entitlements */,
 			);
@@ -205,7 +205,7 @@
 								enabled = 1;
 							};
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -245,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				066AE2EC2200D4D9008DDC1F /* Assets.xcassets in Resources */,
-				066AE2EF2200D4D9008DDC1F /* Main.storyboard in Resources */,
+				066AE3872203CE9D008DDC1F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,17 +305,6 @@
 			targetProxy = 066AE3022200D4D9008DDC1F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		066AE2ED2200D4D9008DDC1F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				066AE2EE2200D4D9008DDC1F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		066AE3082200D4D9008DDC1F /* Debug */ = {
@@ -437,7 +426,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "SC Cam/SC Cam.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -458,7 +446,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "SC Cam/SC Cam.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
