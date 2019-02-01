@@ -11,7 +11,6 @@ import AVFoundation
 
 class ViewController: NSViewController {
     
-    @IBOutlet weak var imgButton: NSButton!
     @IBOutlet var camView: NSView!
     @IBOutlet weak var imgView: NSImageView!
     
@@ -32,19 +31,12 @@ class ViewController: NSViewController {
     
     @IBAction func btnStartAction(_ sender: Any) {
 
-        let imgName = "file:///Users/jvolcy/Desktop/sc.png"
-        //imgCell.image = NSImage(named: imgName)
+        let imgName = "file:///Users/jvolcy/Desktop/1280x720.png"
         
-        
-        //let url = URL(fileURLWithPath: imgName)
         let url = URL(string: imgName)
 
-        imgButton.image = NSImage(byReferencing: url!)
-        
-        //imgButton.image = NSImage(named: imgName)
-        
         imgView.image = NSImage(byReferencing: url!)
-        //======================================================================================
+
         //======================================================================================
         
         camView.layer = CALayer()
@@ -64,7 +56,7 @@ class ViewController: NSViewController {
             // Camera object found and assign it to captureDevice
             if ((device as AnyObject).hasMediaType(AVMediaType.video)) {
                 print(device)
-                captureDevice = device as? AVCaptureDevice
+                captureDevice = device //as AVCaptureDevice
             }
         }
         

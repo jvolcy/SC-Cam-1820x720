@@ -20,6 +20,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
+    
+    //function to quit when the user clicks the close button
+    func applicationShouldTerminateAfterLastWindowClosed(_ app: NSApplication) -> Bool {
+        return true
+    }
 
 
 }
