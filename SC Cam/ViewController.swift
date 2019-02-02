@@ -20,7 +20,34 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewControllerGp = self
+        
 
+        if let appDeg = appDelegateGp {
+            //connect the global menu pointer to the app's menu
+            appMenuGp = appDeg.appMenu
+            
+        }
+
+    }
+        
+    
+
+
+    func captureDeviceDeviceMenuEnableOption(deviceNumber: Int, enable: Bool, deviceName: String?){
+        let mnuItemDevice = appMenuGp?.item(withTitle: "Capture Device")
+        let y = mnuItemDevice?.submenu?.item(at: deviceNumber)
+        y?.title = deviceName ?? "?"
+        y?.isHidden = !enable
+        
+        //add/remove a check mark by the selected item
+        if enable {
+            y?.state = .on
+        }
+        else {
+            y?.state = .off
+        }
+        
     }
     
     override var representedObject: Any? {
@@ -37,7 +64,7 @@ class ViewController: NSViewController {
 
         imgView.image = NSImage(byReferencing: url!)
 
-        //======================================================================================
+        //=======================================================================================
         
         camView.layer = CALayer()
         camView.layer?.frame = CGRect(x:880, y:0, width:400, height:720)
@@ -54,9 +81,14 @@ class ViewController: NSViewController {
             print(device)
             
             // Camera object found and assign it to captureDevice
-            if ((device as AnyObject).hasMediaType(AVMediaType.video)) {
+            if device.hasMediaType(AVMediaType.video) {
                 print(device)
                 captureDevice = device //as AVCaptureDevice
+                
+                //let x = devices.firstIndex(of: device)
+                
+                captureDeviceDeviceMenuEnableOption(deviceNumber: devices.firstIndex( of: device)!, enable: true, deviceName: captureDevice?.localizedName)
+
             }
         }
         
@@ -90,6 +122,13 @@ class ViewController: NSViewController {
 
     }
     
+    
+    func menuBackgroundSelect(_ sender: Any) {
+        if let menuItem = sender as? NSMenuItem{
+            print(menuItem.title)
+        }
+    }
+
 }
 
 

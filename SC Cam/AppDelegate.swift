@@ -8,11 +8,25 @@
 
 import Cocoa
 
+var viewControllerGp: ViewController?
+
+//global pointer to app menu
+var appMenuGp: NSMenu?
+
+//global pointer to app delegate
+var appDelegateGp: AppDelegate?
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
+    @IBOutlet weak var appMenu: NSMenu!
+    
+    override init() {
+        super.init()
+        //connect the global app delegate pointer to the app delegate
+        appDelegateGp = self
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -26,6 +40,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
-
+    @IBAction func menuSelect(_ sender: Any) {
+            if let gp = viewControllerGp {
+                gp.menuBackgroundSelect(sender)
+            }
+        
+    }
+    
+    
+    
 }
 
