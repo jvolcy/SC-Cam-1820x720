@@ -17,6 +17,8 @@ class ViewController: NSViewController {
     let captureSession = AVCaptureSession()
     var captureDevice : AVCaptureDevice?
     var previewLayer : AVCaptureVideoPreviewLayer?
+    var cameras : [AVCaptureDevice] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +33,24 @@ class ViewController: NSViewController {
 
     }
         
+    func checkMenuItem(menuItem : NSMenuItem) {
+        //add a check mark by the selected item
+        menuItem.state = .on
+    }
     
+    func uncheckMenuItem(menuItem : NSMenuItem) {
+        //remove a check mark by the selected item
+        menuItem.state = .off
+    }
+
+    func unCheckAllCaptureMenuDevices() {
+        //remove a check mark by all items in the "Capture Device" menu
+        if let menuGp = appMenuGp {
+            for menuItem in menuGp.items {
+                uncheckMenuItem(menuItem: menuItem)
+            }
+        }
+    }
 
 
     func captureDeviceDeviceMenuEnableOption(deviceNumber: Int, enable: Bool, deviceName: String?){
@@ -39,15 +58,6 @@ class ViewController: NSViewController {
         let y = mnuItemDevice?.submenu?.item(at: deviceNumber)
         y?.title = deviceName ?? "?"
         y?.isHidden = !enable
-        
-        //add/remove a check mark by the selected item
-        if enable {
-            y?.state = .on
-        }
-        else {
-            y?.state = .off
-        }
-        
     }
     
     override var representedObject: Any? {
@@ -83,6 +93,8 @@ class ViewController: NSViewController {
             // Camera object found and assign it to captureDevice
             if device.hasMediaType(AVMediaType.video) {
                 print(device)
+                cameras.append(device)
+                
                 captureDevice = device //as AVCaptureDevice
                 
                 //let x = devices.firstIndex(of: device)
@@ -119,7 +131,6 @@ class ViewController: NSViewController {
                 print(AVCaptureSessionErrorKey.description)
             }
         }
-
     }
     
     
@@ -129,6 +140,5 @@ class ViewController: NSViewController {
         }
     }
 
-}
 
-
+    }
