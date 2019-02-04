@@ -51,49 +51,49 @@
                                         <menuItem title="Device 0" hidden="YES" id="Was-JA-tGl">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="menuSelect:" target="Voe-Tx-rLC" id="noP-Av-sSy"/>
+                                                <action selector="menuDeviceSelect:" target="Voe-Tx-rLC" id="rAG-Va-F7n"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Device 1" hidden="YES" id="IAo-SY-fd9">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="menuSelect:" target="Voe-Tx-rLC" id="aRO-Bf-yEq"/>
+                                                <action selector="menuDeviceSelect:" target="Voe-Tx-rLC" id="ypv-9j-4sw"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Device 2" hidden="YES" id="Zq4-8X-Dcs">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="menuSelect:" target="Voe-Tx-rLC" id="wey-GI-eTn"/>
+                                                <action selector="menuDeviceSelect:" target="Voe-Tx-rLC" id="IUy-ab-D6V"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Device 3" hidden="YES" id="s4G-3V-BzL">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="menuSelect:" target="Voe-Tx-rLC" id="V3d-j5-Ee0"/>
+                                                <action selector="menuDeviceSelect:" target="Voe-Tx-rLC" id="fz6-zw-LTu"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Device 4" hidden="YES" id="Php-4X-FBF">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="menuSelect:" target="Voe-Tx-rLC" id="Rlt-cb-0Hs"/>
+                                                <action selector="menuDeviceSelect:" target="Voe-Tx-rLC" id="5Iq-uh-M6T"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Device 5" hidden="YES" id="1Ys-nl-S0J">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="menuSelect:" target="Voe-Tx-rLC" id="eNQ-if-5aZ"/>
+                                                <action selector="menuDeviceSelect:" target="Voe-Tx-rLC" id="uwL-i5-2Hw"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Device 6" hidden="YES" id="Dji-Y5-bVx">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="menuSelect:" target="Voe-Tx-rLC" id="hRE-Hr-NXD"/>
+                                                <action selector="menuDeviceSelect:" target="Voe-Tx-rLC" id="Mlc-1e-h1j"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Device 7" hidden="YES" id="3SV-zx-DRP">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="menuSelect:" target="Voe-Tx-rLC" id="KiE-MY-fwk"/>
+                                                <action selector="menuDeviceSelect:" target="Voe-Tx-rLC" id="Y01-sf-3gS"/>
                                             </connections>
                                         </menuItem>
                                     </items>
