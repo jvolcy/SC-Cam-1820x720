@@ -188,7 +188,7 @@
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-jm-JPR" userLabel="imgView">
                                 <rect key="frame" x="0.0" y="0.0" width="880" height="720"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" id="sZ4-Pe-ZGz"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="proportionallyUpOrDown" id="sZ4-Pe-ZGz"/>
                             </imageView>
                         </subviews>
                     </view>

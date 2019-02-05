@@ -110,13 +110,11 @@ class ViewController: NSViewController {
     /* ============================================================================
      ============================================================================ */
     @IBAction func btnStartAction(_ sender: Any) {
-
+/*
         let imgName = "file:///Users/jvolcy/Desktop/880x720.png"
-        
         let url = URL(string: imgName)
-
         imgView.image = NSImage(byReferencing: url!)
-
+*/
     }
     
     /* ============================================================================
