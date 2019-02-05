@@ -10,26 +10,25 @@ import Cocoa
 import AVFoundation
 
 /* ============================================================================
+ class ViewController
 ============================================================================ */
 class ViewController: NSViewController {
     
-    //----------  ----------
+    //---------- IOBOutlets ----------
     @IBOutlet var camView: NSView!
     @IBOutlet weak var imgView: NSImageView!
     
-    //----------  ----------
+    //---------- class members ----------
     let captureSession = AVCaptureSession()
-    var captureDevice : AVCaptureDevice?
-    var previewLayer : AVCaptureVideoPreviewLayer?
     var cameras : [AVCaptureDevice] = []
     
     
     /* ============================================================================
+     func viewDidLoad()
      ============================================================================ */
     override func viewDidLoad() {
         super.viewDidLoad()
         viewControllerGp = self
-
 
         //----------  ----------
         camView.layer = CALayer()
@@ -39,28 +38,27 @@ class ViewController: NSViewController {
 
         captureSession.sessionPreset = AVCaptureSession.Preset.low
         
-        // Get all audio and video devices on this machine
+        //---------- Get all audio and video devices on this machine ----------
         let devices = AVCaptureDevice.devices()
         
-        // Find the FaceTime HD camera object
+        //---------- go through the list of available capture devices ----------
         for device in devices {
             print(device)
             
-            // Camera object found: add it to the cameras list
+            //---------- if the capture device is a video device, add it to the cameras list ----------
             if device.hasMediaType(AVMediaType.video) {
                 cameras.append(device)
             }
-                
+            
+            //---------- add the name of each camera to the "Capture Devices" menu ----------
             for i in 0..<cameras.count {
                 captureDeviceMenuEnableOption(deviceNumber: i, enable: true, deviceName: cameras[i].localizedName)
             }
-
         }
- 
-
     }
         
     /* ============================================================================
+     function to add a check mark before the supplied menu item.
      ============================================================================ */
     func checkMenuItem(menuItem : NSMenuItem) {
         //add a check mark by the selected item
@@ -68,6 +66,7 @@ class ViewController: NSViewController {
     }
     
     /* ============================================================================
+     function to remove the check mark before the supplied menu item.
      ============================================================================ */
     func uncheckMenuItem(menuItem : NSMenuItem) {
         //remove a check mark by the selected item
@@ -75,6 +74,7 @@ class ViewController: NSViewController {
     }
 
     /* ============================================================================
+     function to uncheck all devices on the capture device menu list
      ============================================================================ */
     func unCheckAllCaptureMenuDevices() {
         //remove a check mark by all items in the "Capture Device" menu
@@ -91,6 +91,8 @@ class ViewController: NSViewController {
 
 
     /* ============================================================================
+     function to enable and title one of the 8 capture device sub-entries in the
+     "Capture Device" menu.
      ============================================================================ */
     func captureDeviceMenuEnableOption(deviceNumber: Int, enable: Bool, deviceName: String?){
         let mnuItemDevice = appDelegateGp?.appMenu.item(withTitle: "Capture Device")
@@ -108,16 +110,15 @@ class ViewController: NSViewController {
     }
     
     /* ============================================================================
+     experimental code test button (hidden on UI in final release)
      ============================================================================ */
     @IBAction func btnStartAction(_ sender: Any) {
-/*
-        let imgName = "file:///Users/jvolcy/Desktop/880x720.png"
-        let url = URL(string: imgName)
-        imgView.image = NSImage(byReferencing: url!)
-*/
+
     }
     
     /* ============================================================================
+     function to begin a video capture session on the supplied capture device.
+     This should be one of the devices in the cameras list.
      ============================================================================ */
     func startCaptureSession(captureDevice: AVCaptureDevice?) {
         
@@ -134,22 +135,20 @@ class ViewController: NSViewController {
         }
 
         if captureDevice != nil {
-            
             do {
-                
+                //---------- attempt to add the capture device ----------
                 try captureSession.addInput(AVCaptureDeviceInput(device: captureDevice!))
-                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
  
-                previewLayer?.frame = CGRect(x:0, y:0, width:400, height:720)
-                
-                previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                //---------- configure a preview layer ----------
+                let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer.frame = CGRect(x:0, y:0, width:400, height:720)
+                previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
                 //previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect
                 
-                
-                // Add previewLayer into custom view
-                self.camView.layer?.addSublayer(previewLayer!)
+                //---------- Add previewLayer into custom view ----------
+                self.camView.layer?.addSublayer(previewLayer)
 
-                // Start camera
+                //---------- Start camera ----------
                 captureSession.startRunning()
                 
             } catch {
@@ -160,23 +159,36 @@ class ViewController: NSViewController {
     }
 
     /* ============================================================================
+     function called by the AppDelegate for menu selections other than
+     capture device selection
      ============================================================================ */
-    func menuBackgroundSelect(_ sender: Any) {
-        /*
-        if let menuItem = sender as? NSMenuItem{
-            print(menuItem.title)
-        }
- */
+    func menuSelect(_ sender: Any) {
 
-        let myFileDialog = NSOpenPanel()
-        myFileDialog.runModal()
+        //---------- Get the selected menu option ----------
+        let menuItem = sender as? NSMenuItem
+        let title = menuItem?.title ?? ""
         
-        if let url = myFileDialog.url {
-            imgView.image = NSImage(byReferencing: url)
-        }
-    }
+        //---------- process the menu selection ----------
+        switch (title) {
+        case "Select Background Image":
+            /* ---------- open a file dialog box to let the user select
+             and image file: jpg, png, pdf, etc... ---------- */
+            let myFileDialog = NSOpenPanel()
+            myFileDialog.runModal()
+            
+            //---------- if a file was selected, use it as the background ----------
+            if let url = myFileDialog.url {
+                imgView.image = NSImage(byReferencing: url)
+            }   //if
+
+        default:
+            print("Unknown menu selection: ", title)
+        }   //switch
+        
+    }   //func menuSelect
 
     /* ============================================================================
+     function called by the AppDelegate for capture device menu selections
      ============================================================================ */
     func menuDeviceSelect(_ sender: Any) {
         if let selectedDeviceMenuItem = sender as? NSMenuItem{

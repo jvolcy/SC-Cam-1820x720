@@ -17,28 +17,28 @@ var appDelegateGp: AppDelegate?
 
 
 /* ============================================================================
+ class AppDelegate
  ============================================================================ */
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    //----------  ----------
     @IBOutlet weak var appMenu: NSMenu!
     
     override init() {
         super.init()
-        //connect the global app delegate pointer to the app delegate
-        appDelegateGp = self
         
+        //---------- connect the global app delegate pointer to the app delegate ----------
+        appDelegateGp = self
     }
     
     /* ============================================================================
+     func applicationDidFinishLaunching()
      ============================================================================ */
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        //viewControllerGp = view
     }
 
     /* ============================================================================
+     func applicationWillTerminate()
      ============================================================================ */
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
@@ -53,15 +53,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     /* ============================================================================
+     callback for all menu selections other than "capture device" menu items
      ============================================================================ */
     @IBAction func menuSelect(_ sender: Any) {
             if let gp = viewControllerGp {
-                gp.menuBackgroundSelect(sender)
+                gp.menuSelect(sender)
             }
-        
     }
     
     /* ============================================================================
+     callback for "capture device" menu selections
      ============================================================================ */
     @IBAction func menuDeviceSelect(_ sender: Any) {
         if let gp = viewControllerGp {
