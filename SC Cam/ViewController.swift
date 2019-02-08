@@ -178,7 +178,20 @@ class ViewController: NSViewController {
             
             //---------- if a file was selected, use it as the background ----------
             if let url = myFileDialog.url {
+                //imgView.layer?.contentsGravity = CALayerContentsGravity.resizeAspectFill
+                
                 imgView.image = NSImage(byReferencing: url)
+                //print("imgView.image.size = ", imgView.image?.size)
+                //print(imgView.fittingSize, imgView.frame.size, imgView.bounds.size)
+                /*
+                imgView.imageAlignment = .alignTopLeft
+                imgView.layer = CALayer()
+                imgView.layer?.contentsGravity = CALayerContentsGravity.resizeAspectFill
+                imgView.layer?.contentsGravity = CALayerContentsGravity.topLeft
+                imgView.layer?.contents = imgView.image
+                imgView.wantsLayer = true
+                */
+
             }   //if
 
         default:

@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  SC Cam
+//  SC Cam (1280x720)
 //
 //  Created by Jerry Volcy on 1/29/19.
 //  Copyright © 2019 Jerry Volcy. All rights reserved.
